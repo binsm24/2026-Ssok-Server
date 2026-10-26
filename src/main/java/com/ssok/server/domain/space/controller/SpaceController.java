@@ -73,7 +73,7 @@ public class SpaceController {
         );
     }
 
-    @Operation(summary = "스페이스 삭제", description = "선택한 스페이스 삭제")
+    @Operation(summary = "스페이스 삭제", description = "OWNER만 삭제 가능. 해당 스페이스의 북마크, 북마크 태그 및 멤버 정보를 DB에서 함께 영구 삭제")
     @DeleteMapping("/{spaceId}")
     public ResponseEntity<ApiResponse<Boolean>> delete(
             Authentication authentication,

@@ -107,6 +107,9 @@ public class SpaceService {
                     "only owner can delete the space");
         }
 
+        // 엔티티 삭제로 members/bookmarks에 REMOVE를 전파하고,
+        // Bookmark의 ElementCollection인 bookmark_tags도 같은 트랜잭션에서 삭제한다.
+        // 벌크 DELETE는 JPA 연쇄 삭제를 생략하므로 사용하지 않는다.
         spaceRepository.delete(space);
     }
 
